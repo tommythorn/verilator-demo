@@ -1,14 +1,15 @@
-module our(input clock, output y);
+module our(
+        input clock, 
+        output reg [31:0] fn = 0);
 
-   reg [31:0] x = 1, y = 1;
+   reg [31:0] fn1 = 1;
 
    always @(posedge clock) begin
-      //$display("Got %d", x);
-      x <= y;
-      y <= y + x;
+      fn <= fn1;
+      fn1 <= fn1 + fn;
    end
 
   initial begin
-    $display("Hello World");
+    $display("Fibonacci numbers:");
   end
 endmodule
